@@ -75,23 +75,45 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
     return Container(
       height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
       // color: Color.fromARGB(255, 82, 255, 111),
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
+      child: Container(
+        margin:
+            EdgeInsets.all(10.0), // set the margin to 10 pixels on all sides
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
             primary: buttonColor,
             onPrimary: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
-              side: BorderSide(color: Colors.white),
-            )),
-        onPressed: () => buttonPressed(buttonText),
-        child: Text(
-          buttonText,
-          style: TextStyle(
-              fontSize: 30.0,
-              fontWeight: FontWeight.normal,
-              color: Colors.white),
+            ),
+          ),
+          onPressed: () => buttonPressed(buttonText),
+          child: Text(
+            buttonText,
+            style: TextStyle(
+                fontSize: 30.0,
+                fontWeight: FontWeight.normal,
+                color: Colors.white),
+          ),
         ),
       ),
+
+      // ElevatedButton(
+      //   style: ElevatedButton.styleFrom(
+      //       primary: buttonColor,
+      //       onPrimary: Colors.white,
+      //       shape: RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.circular(50),
+
+      //       )),
+      //   onPressed: () => buttonPressed(buttonText),
+      //   child: Text(
+      //     buttonText,
+      //     style: TextStyle(
+      //         fontSize: 30.0,
+      //         fontWeight: FontWeight.normal,
+      //         color: Colors.white),
+      //   ),
+      // ),
     );
   }
 
