@@ -76,8 +76,8 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
       height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
       // color: Color.fromARGB(255, 82, 255, 111),
       child: Container(
-        margin:
-            EdgeInsets.all(10.0), // set the margin to 10 pixels on all sides
+        margin: EdgeInsets.all(8.0), // set the margin to 10 pixels on all sides
+        height: 100,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             primary: buttonColor,
@@ -87,12 +87,19 @@ class _SimpleCalculatorState extends State<SimpleCalculator> {
             ),
           ),
           onPressed: () => buttonPressed(buttonText),
-          child: Text(
-            buttonText,
-            style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.normal,
-                color: Colors.white),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double fontSize = constraints.maxHeight *
+                  0.65; // calculate the font size as 75% of the button height
+              return Text(
+                buttonText,
+                style: TextStyle(
+                  fontSize: fontSize,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                ),
+              );
+            },
           ),
         ),
       ),
